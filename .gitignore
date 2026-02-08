@@ -1,0 +1,35 @@
+# Backend
+backend/venv
+backend/.env
+**/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+.Python
+*.so
+*.egg
+*.egg-info/
+.eggs/
+build/
+.coverage
+htmlcov/
+.coverage.*
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.manifest
+
+# Frontend
+node_modules/
+frontend/dist/
+*.tsbuildinfo
+.env
+.env.local
+.env.*.local
+.vite
+coverage/
+
+# OS
+.DS_Store
+

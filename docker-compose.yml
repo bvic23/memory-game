@@ -1,0 +1,45 @@
+services:
+  api:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python", "-c",
+          "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    # Optional: mount for live reload during dev
+    # volumes:
+    #   - ./backend/src:/app/src:ro
+    #   - ./backend/main.py:/app/main.py:ro
+    # environment:
+    #   - PORT=8000
+    #   - LOG_LEVEL=INFO
+
+  frontend:
+    profiles:
+      - dev
+    build:
+      context: frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/index.html:/app/index.html
+      - ./frontend/public:/app/public
+      - ./frontend/vite.config.ts:/app/vite.config.ts
+      - ./frontend/tsconfig.json:/app/tsconfig.json
+      - ./frontend/tsconfig.node.json:/app/tsconfig.node.json
+      # Prevent overwriting node_modules from host
+      - /app/node_modules
+    environment:
+      - VITE_BACKEND_URL=http://localhost:8000

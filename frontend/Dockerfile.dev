@@ -1,0 +1,13 @@
+# Dev only: run Vite dev server with HMR (use bun run dev on host if you prefer)
+FROM oven/bun:1
+
+WORKDIR /app
+
+COPY package.json bun.lock* package-lock.json* ./
+RUN bun install --frozen-lockfile || bun install
+
+COPY . .
+
+EXPOSE 5173
+
+CMD ["bun", "run", "dev"]

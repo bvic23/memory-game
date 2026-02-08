@@ -1,0 +1,58 @@
+<svg width="300" height="420" viewBox="0 0 300 420" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <!-- Hover gradient (brighter + warmer) -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7DF3FF"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+
+    <!-- Subtle pattern -->
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="2" fill="rgba(255,255,255,0.2)"/>
+    </pattern>
+
+    <!-- Slightly stronger shadow for hover -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Card base -->
+  <rect x="10" y="10" width="280" height="400" rx="24" fill="url(#bg)" filter="url(#shadow)"/>
+
+  <!-- Pattern overlay -->
+  <rect x="10" y="10" width="280" height="400" rx="24" fill="url(#dots)"/>
+
+  <!-- Inner border -->
+  <rect x="24" y="24" width="252" height="372" rx="18"
+        fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="2"/>
+
+  <!-- Center emblem -->
+  <g transform="translate(150 210)">
+    <!-- Card stack -->
+    <rect x="-42" y="-32" width="60" height="80" rx="10" fill="rgba(255,255,255,0.4)"/>
+    <rect x="-30" y="-42" width="60" height="80" rx="10" fill="rgba(255,255,255,0.6)"/>
+    <rect x="-18" y="-52" width="60" height="80" rx="10" fill="white"/>
+
+    <!-- Star -->
+    <path d="M12 -22
+             L16 -12
+             L27 -10
+             L19 -2
+             L21 9
+             L12 3
+             L3 9
+             L5 -2
+             L-3 -10
+             L8 -12 Z"
+          fill="#A78BFA"/>
+  </g>
+
+  <!-- Corner sparks -->
+  <circle cx="50" cy="60" r="3" fill="white" opacity="0.75"/>
+  <circle cx="250" cy="90" r="3" fill="white" opacity="0.75"/>
+  <circle cx="70" cy="350" r="3" fill="white" opacity="0.75"/>
+  <circle cx="230" cy="330" r="3" fill="white" opacity="0.75"/>
+
+</svg>
